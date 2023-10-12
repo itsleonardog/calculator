@@ -1,26 +1,40 @@
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+  const [display, setDisplay] = useState('0');
+
+  const handleNumber = (event) => {
+    const number = event.target.textContent;
+    if (display === '0') {
+      setDisplay(number);
+    } else {
+      setDisplay(display + number);
+    }
+  }
+
   return (
     <div className="App">
       <div className="calculator">
-        <div id="display" className="row"></div>
+        <div id="display" className="row">
+          {display}
+        </div>
         <div id="clear" className="row">
           AC
         </div>
-        <div id="seven">7</div>
-        <div id="eight">8</div>
-        <div id="nine">9</div>
+        <div id="seven" onClick={handleNumber}>7</div>
+        <div id="eight" onClick={handleNumber}>8</div>
+        <div id="nine" onClick={handleNumber}>9</div>
         <div id="multiply">*</div>
-        <div id="four">4</div>
-        <div id="five">5</div>
-        <div id="six">6</div>
+        <div id="four" onClick={handleNumber}>4</div>
+        <div id="five" onClick={handleNumber}>5</div>
+        <div id="six" onClick={handleNumber}>6</div>
         <div id="divide">/</div>
-        <div id="one">1</div>
-        <div id="two">2</div>
-        <div id="three">3</div>
+        <div id="one" onClick={handleNumber}>1</div>
+        <div id="two" onClick={handleNumber}>2</div>
+        <div id="three" onClick={handleNumber}>3</div>
         <div id="add">+</div>
-        <div id="zero">0</div>
+        <div id="zero" onClick={handleNumber}>0</div>
         <div id="decimal">.</div>
         <div id="equals">=</div>
         <div id="subtract">-</div>

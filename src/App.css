@@ -17,3 +17,11 @@
 .row {
   grid-column: 1 / -1;
 }
+
+#display {
+  text-align: right;
+}
+
+#clear {
+  text-align: center;
+}
